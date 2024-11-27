@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #welcomeMessage {
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #28a745; /* Color verde para el mensaje de bienvenida */
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+        }
+
+        .nav-buttons {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Página Principal</h1>
+    <div id="welcomeMessage"></div>
+
+    <label for="userName">¿Cuál es tu nombre?</label>
+    <input type="text" id="userName" placeholder="Ingresa tu nombre">
+    <button id="submitName">Enviar</button>
+
+    <div class="nav-buttons" style="display: none;">
+        <button onclick="location.href='pagina1.html'">Ir a Página 1</button>
+        <button onclick="location.href='pagina2.html'">Ir a Página 2</button>
+        <button onclick="location.href='pagina3.html'">Ir a Página 3</button>
+        <button onclick="location.href='pagina4.html'">Ir a Página 4</button>
+    </div>
+
+    <script>
+        document.getElementById('submitName').addEventListener('click', function() {
+            const userName = document.getElementById('userName').value;
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            const navButtons = document.querySelector('.nav-buttons');
+
+            if (userName) {
+                welcomeMessage.textContent = '¡Bienvenido, ' + userName + '!';
+                navButtons.style.display = 'block'; // Mostrar los botones de navegación
+            } else {
+                welcomeMessage.textContent = 'Por favor, ingresa tu nombre.';
+            }
+        });
+    </script>
+</body>
+</html>
